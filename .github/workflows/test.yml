@@ -13,13 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: print var context
+      - name: print vars context
         run: |
           echo "--"
-          echo "${VAR_C}"
+          echo "${VARS_C}"
           echo "--"
         env:
-          VAR_C: ${{ toJSON(var) }}
+          VARS_C: ${{ toJSON(vars) }}
 
       - name: print var via env
         run: |
@@ -27,4 +27,4 @@ jobs:
           echo "${FOO}"
           echo "--"
         env:
-          FOO: ${{ var.FOO }}
+          FOO: ${{ vars.FOO }}
