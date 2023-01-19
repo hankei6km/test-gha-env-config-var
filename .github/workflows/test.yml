@@ -1,0 +1,30 @@
+name: test
+on:
+  push:
+    branches:
+      - "**"
+  workflow_dispatch:
+
+env:
+  TEST99: init val
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: print vars context
+        run: |
+          echo "--"
+          echo "${VARS_C}"
+          echo "--"
+        env:
+          VARS_C: ${{ toJSON(vars) }}
+
+      - name: print var via env
+        run: |
+          echo "--"
+          echo "${FOO}"
+          echo "--"
+        env:
+          FOO: ${{ vars.FOO }}
