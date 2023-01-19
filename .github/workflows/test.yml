@@ -21,7 +21,6 @@ jobs:
         env:
           VAR_C: ${{ toJSON(var) }}
 
-    steps:
       - name: print var via env
         run: |
           echo "--"
